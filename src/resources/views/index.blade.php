@@ -15,7 +15,9 @@
         <h1>雀荘マップ</h1>
     </div>
     <div class="container">
+
         <div id="map" class="mahjong-map"></div>
+
         <form action="{{ route('mahjong.search') }}" method="GET" class="search-form">
             <div class="search-form">
                 <div class="search-form__button">
@@ -27,7 +29,9 @@
         <a href="{{ route('mahjong.index')}}">
             <button class="search-button" type="reset">リセット</button>
         </a>
+
         <div id="store-info" style="margin-top: 20px;"></div>
+
     </div>
 
     <div id="store-modal" class="modal">
@@ -36,6 +40,7 @@
                 <div id="modal-body">
                 @if(isset($store))
                     <script>
+                        //この処理は、Laravelで取得した店舗情報をJSでも使えるように、window.storeLocationというグローバル変数に代入しています。
                         window.storeLocation = {
                             id: {{ $store->id }},
                             lat: {{ $store->latitude }},

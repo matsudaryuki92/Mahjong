@@ -1,23 +1,18 @@
 .modal {
     display: none;
-    /* 非表示がデフォルト */
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
-    /* 半透明背景 */
     justify-content: center;
-    /* 中央寄せ（横方向） */
     align-items: center;
-    /* 中央寄せ（縦方向） */
     z-index: 1000;
 }
 
 .modal.active {
     display: flex;
-    /* 表示する時はフレックスボックスで中央配置 */
 }
 
 .modal__content {

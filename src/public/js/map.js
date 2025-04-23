@@ -47,15 +47,18 @@ function initMap() {
         const storeMarker = new google.maps.Marker({
           position: dest,
           map,
-          title: window.storeLocation.name
+          title: window.storeLocation.name,
         });
 
         storeMarker.addListener("click", () => {
+          //dbから取得した店舗情報を表示するためのモーダルを作成
           fetch(`/mahjong/store-info/${window.storeLocation.id}`)
+            //resはfetchのレスポンスオブジェクト定義され、サーバーから返されたレスポンス情報を含む
             .then(res => {
               if (!res.ok) throw new Error(`ステータス ${res.status}`);
               return res.json();
             })
+            //dataはres.json()で変換されたサーバーからのJSONデータで、詳細情報を格納している
             .then(data => {
               const modalBody = document.getElementById("modal-body");
               modalBody.innerHTML = `
@@ -82,24 +85,6 @@ function initMap() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const openButtons = document.querySelectorAll('.modal__open');
-  openButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const modalId = button.getAttribute('data-modal-id');
-      const modal = document.getElementById(modalId);
-      if (modal) modal.classList.add('active');
-    });
-  });
-
-  const closeElements = document.querySelectorAll('.modal__close');
-  closeElements.forEach(close => {
-    close.addEventListener('click', () => {
-      const modal = close.closest('.modal');
-      modal.classList.remove('active');
-    });
-  });
-
-  // モーダル背景クリックで閉じる（オプション）
   document.getElementById("store-modal").addEventListener("click", (e) => {
     if (e.target.id === "store-modal") {
       e.target.classList.remove("active");
