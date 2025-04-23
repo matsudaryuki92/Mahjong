@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #808080;
+}
+
+.header {
+    background-color: #696969;
+    color: white;
+    text-align: center;
+}
+
+.mahjong-map {
+    height: 500px;
+    width: 50%;
+    display: flex;
+    margin: auto;
+}
+
+.search-button {
+    display: block;
+    margin: 20px auto;
+}

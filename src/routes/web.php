@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('mahjong')->name('mahjong.')->group(function () {
+    Route::get('/', [StoreController::class, 'index'])->name('index');
+    Route::get('/search', [StoreController::class, 'search'])->name('search');
+    Route::get('/store-info/{id}', [StoreController::class, 'show'])->name('store.info');
 });
