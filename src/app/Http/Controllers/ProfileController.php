@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use App\Models\Profile;
 
 class ProfileController extends Controller
@@ -13,7 +15,10 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
+        // ログインユーザーのプロフィール情報を取得
+        $profile = Profile::where('user_id', Auth::id())->with('user')->first();
+
+        return view('profile.index', compact('profile'));
     }
 
     /**
@@ -21,7 +26,9 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+
+        return view('profile.create', compact('user'));
     }
 
     /**
@@ -45,7 +52,7 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
-        //
+
     }
 
     /**
@@ -53,7 +60,8 @@ class ProfileController extends Controller
      */
     public function update(UpdateProfileRequest $request, Profile $profile)
     {
-        //
+
+        return route('mahjong.profile.index');
     }
 
     /**

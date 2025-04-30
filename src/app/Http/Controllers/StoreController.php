@@ -20,7 +20,7 @@ class StoreController extends Controller
     public function search(Request $request)
     {
         $name = $request->input('name');
-        if (! $name) {
+        if (!$name) {
             $store = Store::first();
         } else {
             // 名前で検索
