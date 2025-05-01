@@ -9,19 +9,19 @@
 
 <h2>環境構築</h2>
 <h3>Dockerビルド</h3>
-1. git clone git@github.com:matsudaryuki92/Mahjong.git
-2. cd Mahjong
-3. docker-compose up -d --build
-* MySQLは、OSによって起動しない場合があるのでそれぞれのPCに合わせてdocker-compose.ymlファイルを編集してください。
+1. git clone git@github.com:matsudaryuki92/Mahjong.git<br>
+2. cd Mahjong<br>
+3. docker-compose up -d --build<br>
+* MySQLは、OSによって起動しない場合があるのでそれぞれのPCに合わせてdocker-compose.ymlファイルを編集してください。<br>
 
 <h3>Laravel環境構築</h3>
-1. srcディレクトリ内で .env.example をコピーして .env を作成
-2. cd src
-3. docker-compose exec php bash
-4. composer install
-5. php artisan key:generate
-6. php artisan migrate
-7. php artisan db:seed
+1. srcディレクトリ内で .env.example をコピーして .env を作成<br>
+2. cd src<br>
+3. docker-compose exec php bash<br>
+4. composer install<br>
+5. php artisan key:generate<br>
+6. php artisan migrate<br>
+7. php artisan db:seed<br>
 
 <h2>使用技術</h2>
 
@@ -34,7 +34,7 @@
 <h3>ローカル開発用</h3>
 
 <h2>URL</h2>
-* 開発環境:http://localhost
+* 開発環境:http://localhost<br>
 * phpMyAdmin:http://localhost:8080
 
 <h2>ER図</h2>
