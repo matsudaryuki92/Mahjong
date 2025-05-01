@@ -9,6 +9,7 @@ class Profile extends Model
 {
     use HasFactory;
 
+    //user_idはいらないかもしれない
     protected $fillable = [
         'user_id',
         'avatar_path',
